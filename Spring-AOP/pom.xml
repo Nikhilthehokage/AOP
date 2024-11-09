@@ -8,4 +8,84 @@
     <artifactId>Spring-AOP</artifactId>
     <version>1.0.0.0</version>
 
+    <properties>
+        <aspectjrt.version>1.9.22.1</aspectjrt.version>
+        <aspectjweaver.version>1.9.22.1</aspectjweaver.version>
+        <aopalliance.version>1.0</aopalliance.version>
+        <cglib.version>3.3.0</cglib.version>
+        <asm.version>9.7.1</asm.version>
+        <spring-context.version>5.3.39</spring-context.version>
+        <spring-aop.version>5.3.39</spring-aop.version>
+        <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+    </properties>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
+<!--        The AspectJ runtime is a small library necessary to run Java programs enhanced by AspectJ aspects during a previous compile-time or post-compile-time (binary weaving) build step.-->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>${aspectjrt.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+<!--        The AspectJ weaver applies aspects to Java classes. It can be used as a Java agent in order to apply load-time weaving (LTW) during class-loading and also contains the AspectJ runtime classes.-->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectjweaver.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/aopalliance/aopalliance -->
+        <dependency>
+            <groupId>aopalliance</groupId>
+            <artifactId>aopalliance</artifactId>
+            <version>${aopalliance.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/cglib/cglib -->
+<!--        High level API to generate and transform Java byte code.-->
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>${cglib.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.ow2.asm/asm -->
+<!--        ASM, a very small and fast Java bytecode manipulation framework-->
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>${asm.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring-context.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${spring-aop.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>${maven-compiler-plugin.version}</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                    </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
