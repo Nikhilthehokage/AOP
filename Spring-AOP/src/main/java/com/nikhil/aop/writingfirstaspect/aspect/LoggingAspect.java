@@ -2,9 +2,7 @@ package com.nikhil.aop.writingfirstaspect.aspect;
 
 import com.nikhil.aop.writingfirstaspect.model.Circle;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 
 @Aspect
 public class LoggingAspect {
@@ -64,6 +62,43 @@ public class LoggingAspect {
     public void argsAdvice(String  name){
         System.out.println("value of the argument passed to the target method "+ name);
     }
+
+    /*
+        After advice
+     */
+
+    @Pointcut("execution(* printCircleName(..))")
+    public void printCircleName(){}
+
+    @Pointcut("execution(* printAndReturnCircleName(..))")
+    public void printAndReturnCircleName(){}
+
+    @After("allCircleMethods() && printCircleName()")
+    public void afterAdvice(){
+        System.out.println("After advice execution.");
+    }
+
+    @AfterReturning("allCircleMethods() && printCircleName()")
+    public void afterReturningAdvice(){
+        System.out.println("After returning advice execution.");
+    }
+
+    @AfterThrowing("allCircleMethods() && printCircleName()")
+    public void afterThrowingAdvice(){
+        System.out.println("After throwing advice execution.");
+    }
+
+    @AfterReturning(value = "allCircleMethods() && printAndReturnCircleName()", returning = "name")
+    public void afterReturningAndPrintingAdvice(String name){
+        System.out.println("After returning advice execution. return value is - "+name);
+    }
+
+    @AfterThrowing(value = "allCircleMethods() && printAndReturnCircleName()", throwing = "exception")
+    public void afterThrowingAndPrintingAdvice(RuntimeException exception){
+        System.out.println("After throwing advice execution. thrown exception - "+exception);
+    }
+
+
 
 
 

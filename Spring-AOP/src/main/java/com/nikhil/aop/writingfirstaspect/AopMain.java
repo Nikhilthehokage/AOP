@@ -9,6 +9,9 @@ public class AopMain {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("Spring.xml");
         ShapeService shapeService = ctx.getBean("shapeService", ShapeService.class);
         shapeService.getCircle().setName("new name");
-        System.out.println(shapeService.getCircle().getName());
+        //System.out.println(shapeService.getCircle().getName());
+        //shapeService.getCircle().printCircleName();
+        shapeService.getCircle().printAndReturnCircleName();
+
     }
 }
