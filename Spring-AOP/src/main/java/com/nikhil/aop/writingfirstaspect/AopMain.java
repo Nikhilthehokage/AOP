@@ -11,7 +11,8 @@ public class AopMain {
         shapeService.getCircle().setName("new name");
         //System.out.println(shapeService.getCircle().getName());
         //shapeService.getCircle().printCircleName();
-        shapeService.getCircle().printAndReturnCircleName();
+        //shapeService.getCircle().printAndReturnCircleName();
+        shapeService.getCircle().printCircleNameForAroundAdvice();
 
     }
 }

@@ -25,5 +25,9 @@ public class Circle {
         //return name;
     }
 
+    public void printCircleNameForAroundAdvice(){
+        System.out.println("Circle name - "+ name);
+//        throw new RuntimeException();
+    }
 
 }

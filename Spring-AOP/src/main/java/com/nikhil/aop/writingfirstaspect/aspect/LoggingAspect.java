@@ -2,6 +2,7 @@ package com.nikhil.aop.writingfirstaspect.aspect;
 
 import com.nikhil.aop.writingfirstaspect.model.Circle;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 
 @Aspect
@@ -96,6 +97,27 @@ public class LoggingAspect {
     @AfterThrowing(value = "allCircleMethods() && printAndReturnCircleName()", throwing = "exception")
     public void afterThrowingAndPrintingAdvice(RuntimeException exception){
         System.out.println("After throwing advice execution. thrown exception - "+exception);
+    }
+
+    /*
+        Around advice
+     */
+
+    @Pointcut("execution(* printCircleNameForAroundAdvice(..))")
+    public void printCircleNameForAroundAdvice(){
+
+    }
+    
+    @Around("allCircleMethods() && printCircleNameForAroundAdvice()")
+    public void aroundAdvice(ProceedingJoinPoint proceedingJoinPoint){
+        System.out.println("executing before");
+        try {
+            proceedingJoinPoint.proceed();
+            System.out.println("executing after");
+        }catch (Throwable e) {
+            System.out.println("exception thrown in targeted method");
+        }
+        System.out.println("executing finally");
     }
 
 
