@@ -18,4 +18,12 @@
     <bean name="shapeService" class="com.nikhil.aop.writingfirstaspect.service.ShapeService" autowire="byName"/>
 
     <bean name="loggingAspect" class="com.nikhil.aop.writingfirstaspect.aspect.LoggingAspect"/>
+
+    <bean name="XMLConfiguredAspect" class="com.nikhil.aop.writingfirstaspect.aspect.XMLConfiguredAspect"/>
+    <aop:config>
+        <aop:aspect id="XMLConfiguredAspect" ref="XMLConfiguredAspect">
+            <aop:pointcut id="printTriangeName" expression="execution(* printTriangeName(..))"/>
+            <aop:around method="advice" pointcut-ref="printTriangeName"/>
+        </aop:aspect>
+    </aop:config>
 </beans>

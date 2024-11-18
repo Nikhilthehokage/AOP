@@ -8,12 +8,13 @@ public class AopMain {
     public static void main(String [] args){
         ApplicationContext ctx = new ClassPathXmlApplicationContext("Spring.xml");
         ShapeService shapeService = ctx.getBean("shapeService", ShapeService.class);
-        shapeService.getCircle().setName("new name");
+        //shapeService.getCircle().setName("new name");
         //System.out.println(shapeService.getCircle().getName());
         //shapeService.getCircle().printCircleName();
         //shapeService.getCircle().printAndReturnCircleName();
         //shapeService.getCircle().printCircleNameForAroundAdvice();
-        shapeService.getCircle().printCircleNameForMyCustomAnnotation();
+        //shapeService.getCircle().printCircleNameForMyCustomAnnotation();
+        shapeService.getTriangle().printTriangeName();
 
     }
 }

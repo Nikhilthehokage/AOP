@@ -10,4 +10,9 @@ public class Triangle {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String printTriangeName(){
+        System.out.println("Triangle name - "+name);
+        return name;
+    }
 }

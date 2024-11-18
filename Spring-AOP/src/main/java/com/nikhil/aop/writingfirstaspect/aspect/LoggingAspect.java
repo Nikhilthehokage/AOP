@@ -107,7 +107,7 @@ public class LoggingAspect {
     public void printCircleNameForAroundAdvice(){
 
     }
-    
+
     @Around("allCircleMethods() && printCircleNameForAroundAdvice()")
     public void aroundAdvice(ProceedingJoinPoint proceedingJoinPoint){
         System.out.println("executing before");
