@@ -30,4 +30,10 @@ public class Circle {
 //        throw new RuntimeException();
     }
 
+    @MyCustomAnnotation
+    public void printCircleNameForMyCustomAnnotation(){
+        System.out.println("Circle name - "+ name);
+//        throw new RuntimeException();
+    }
+
 }

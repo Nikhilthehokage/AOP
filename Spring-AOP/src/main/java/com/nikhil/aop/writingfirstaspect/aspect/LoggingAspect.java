@@ -120,6 +120,22 @@ public class LoggingAspect {
         System.out.println("executing finally");
     }
 
+    /*
+    custom annotation example
+     */
+
+    @Around("@annotation(com.nikhil.aop.writingfirstaspect.model.MyCustomAnnotation)")
+    public void annotationAdvice(ProceedingJoinPoint proceedingJoinPoint){
+        System.out.println("executing before for custom annotationAdvice");
+        try {
+            proceedingJoinPoint.proceed();
+            System.out.println("executing after for custom annotationAdvice");
+        }catch (Throwable e) {
+            System.out.println("exception thrown in targeted method annotated with MyCustomAnnotation");
+        }
+        System.out.println("executing finally for MyCustomAnnotation");
+    }
+
 
 
 
